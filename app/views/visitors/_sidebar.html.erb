@@ -1,0 +1,37 @@
+<div id="sidebar">
+<div class="insidebar" style="padding-left:10%;">
+<b>Kategorie:</b>
+<% @category.each do |f| %>
+	<li><%= link_to f.nazwa, {controller: "posts", action: "showcategory", kategoria: f.nazwa} %></li>
+<% end %>
+</div>
+<div class="insidebar" style="text-align:center;">
+<p>Znajdź nas na Facebooku!</p>
+<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FZHP.Sulecinek&tabs=messages&width=230&height=370&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+width="230" height="370" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+</iframe>
+</div>
+
+<div class="insidebar" style="text-align:center;">
+<b>Warto sprawdzić:</br></b>
+			<%= link_to "Galeria", {controller: "photos", action: "show"}, class: "button small secondary" %></br>
+			<%= link_to "Kalendarz", calendars_index_path(rok: Time.now.year(), miesiac: Time.now.month()), class: "button small secondary" %></br>
+			<%= link_to "Kadra", {controller: "scouts", action: "show"}, class: "button small secondary" %></br>
+			<%= link_to "Kontakt", {controller: "contacts", action: "index"}, class: "button small secondary" %>
+</div>
+
+</div>
+
+
+<style>
+#sidebar {
+float:right;
+width:15%;
+height:100vh;
+background-color:#fdfdfd;
+position:relative;
+margin:0px;
+margin-top:-15px;overflow:auto;
+right:0px;
+}
+</style>

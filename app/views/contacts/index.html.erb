@@ -1,0 +1,50 @@
+<div id="inpost-ad-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pokemongo-top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6222054838117933"
+     data-ad-slot="2820503107"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="contact-form" style="width:80%;margin:auto;">
+</br>
+<h2>Fill boxes below to contact with us:</h2>
+<%= form_for @contacts, url: {controller: "contacts", action: "create"}, method: "post" do |f| %>
+
+	<%= f.hidden_field :date, value: Time.now() %>
+
+	<%= f.label :imie, "First name:" %>
+	<%= f.text_field :imie %>
+	
+	<%= f.label :nazwisko, "Last name:" %>
+	<%= f.text_field :nazwisko %>
+	
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	
+	<%= f.label :tytul %>
+	<%= f.text_field :tytul %>
+
+	<%= f.label :description %>
+	<%= f.text_area :opis %>
+	
+	<%= f.submit "Wyślij", class: "button" %>
+
+<% end %>
+</div>
+<div id="inpost-ad-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pokemongo-bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6222054838117933"
+     data-ad-slot="4297236306"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>

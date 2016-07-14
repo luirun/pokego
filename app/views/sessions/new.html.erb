@@ -1,0 +1,8 @@
+<%= simple_form_for(:session, url: sessions_create_path) do |form| %>
+<%= form.error_notification %>
+<%= form.input :email %>
+Haslo<%= form.password_field :password %>
+<%= form.button :submit, 'Log In', class: 'submit' %>
+<% end %>
+
+<%= link_to "Zarejestruj się", {controller: "users", action: "new"}, class: "button" %>

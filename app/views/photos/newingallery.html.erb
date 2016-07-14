@@ -1,0 +1,12 @@
+<%= form_for @photos, url: {controller: "photos", action: "create"}, html: { multipart: true }, method: "post" do |f| %>
+<%= f.hidden_field :id %>
+
+<%= f.hidden_field :id_galerii, value: @galeria.id %>
+
+<%= f.file_field :zdjecie %>
+
+<%= f.submit "Dodaj zdjęcie!" %>
+<% end %>
+
+
+<%= link_to "Powróć do galerii", {:controller  => "photos", :action => "showgallery", galeria: @galeria.nazwa} %>

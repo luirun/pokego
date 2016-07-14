@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zawartosc: MyText
+  login: MyText
+  id_postu: 1
+
+two:
+  zawartosc: MyText
+  login: MyText
+  id_postu: 1

@@ -1,0 +1,133 @@
+//LANDSCAPE VERSION
+#comments-list {
+width: 100%;
+margin: auto;
+padding:0px;
+}
+#comments-container {
+width:100%;
+display:block;
+}
+.comment-container {
+width:100%;
+height:100px;
+word-wrap: break-all;
+}
+
+
+.comment-author {
+display:inline-block;
+float:left;
+width:240px;
+min-width:auto;
+height:100px;
+margin:0px;
+padding:0px;
+}
+.comment-author-avatar {
+width:100px; 
+height:100px;
+float:left;
+}
+.comment-author-info {
+text-align:center;
+width:140px;
+height:80px;
+line-height:40px;
+background-color: #95a5a6;
+float:left;
+}
+.comment-date {
+width:140px;
+height:20px;
+line-height:20px;
+text-align:center;
+font-size:12px;
+background-color: #95a5a6;
+float:left;
+}
+
+
+
+
+.comment-content {
+display:inline-block;
+float:left;
+background-color:#bdc3c7;
+height:100px;
+margin:0px;
+padding:0px;
+width: calc(100% - 240px);
+overflow: visible;
+white-space: normal;
+word-wrap: break-word;
+}
+.comment-content-small {
+display:inline-block;
+float:left;
+background-color:#bdc3c7;
+height:100px;
+margin:0px;
+padding:0px;
+width: calc(100% - 240px);
+overflow: visible;
+white-space: normal;
+word-wrap: break-word;
+}
+#length-counter {
+font-size:14px;
+text-align:right;
+}
+
+
+
+//HORIZONTAL
+
+.comment-author.show-for-portrait {
+display:inline-block;
+float:left;
+width:100%;
+min-width:auto;
+height:100px;
+margin:0px;
+padding:0px;
+}
+.comment-author-avatar.show-for-portrait {
+width:100px; 
+height:100px;
+float:left;
+}
+.comment-author-info.show-for-portrait {
+text-align:center;
+width:calc(100% - 100px);
+height:80px;
+line-height:80px;
+background-color: #95a5a6;
+float:left;
+}
+.comment-date.show-for-portrait {
+width:calc(100% - 100px);
+height:20px;
+line-height:20px;
+text-align:center;
+font-size:12px;
+background-color: #95a5a6;
+float:left;
+}
+
+
+
+.comment-content-small.show-for-portrait {
+display:inline-block;
+float:left;
+background-color:#bdc3c7;
+height:100px;
+margin:0px;
+padding:0px;
+width: 100%;
+overflow: visible;
+white-space: normal;
+word-wrap: break-word;
+font-size:0.75em;
+}
+

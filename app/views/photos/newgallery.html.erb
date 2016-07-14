@@ -1,0 +1,9 @@
+<h3>Dodaj nową galerie</h3>
+<%= form_for @galeria, url: {controller: "photos", action: "creategallery"}, html: { multipart: true }, method: "post" do |f| %>
+<%= f.hidden_field :id %>
+<%= f.label :id_autora %>
+<%= f.collection_select(:id_autora, @users, :id, "combined_value") %>
+<%= f.text_field :nazwa %>
+<%= f.file_field :cover %>
+<%= f.submit "Go Go" %>
+<% end %>

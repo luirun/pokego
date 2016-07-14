@@ -1,0 +1,14 @@
+<h2>Lista wszystkich harcerzy!</h2>
+<table>
+	<tr>
+		<td>Imie i Nazwisko </td>
+		<td>Zastep</td>
+		<td>Zdjecie</td>
+	<% @scouts.each do |f| %>
+		<tr>
+			<td><%= f.imie %> <%= f.nazwisko %></td>
+			<td><% zastep = Unit.select(:Nazwa).where(:id => f.zastep).first %><%= zastep.Nazwa %></td>
+			<td>Zdjecie</td>
+		</tr>
+	<% end %>	
+</table>

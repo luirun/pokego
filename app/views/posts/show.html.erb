@@ -1,0 +1,60 @@
+<% kategoria = Category.find(@post.kategoria) %>
+<% user = User.find(@post.id_autora) %>
+
+
+<div id="inpost-ad-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pokemongo-top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6222054838117933"
+     data-ad-slot="2820503107"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div id="post-cover">
+<%= image_tag (@post.coverphoto.url(:wide)), class: "post-cover-image" %>
+</div>
+<div class="post-title"><%= @post.tytul %></div>
+<div class="post-info" > 
+	<div id="author-avatar"><%= image_tag (@user.avatar.url(:thumb)), id: "author-avatar-img" %><%= link_to "#{user.imie} #{user.nazwisko}", {controller: "users", action: "author", id: @post.id_autora} %> </div>
+	<div id="date-box"><%= @post.data_dodania %></div>
+	<div id="category-box"><%= link_to kategoria.nazwa,{controller: "posts", action: "showcategory", category: kategoria.nazwa}, class: "tiny secondary button" %></div>
+	<div id="sharing-box"> 
+		<iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2F<%= url_for(controller: "posts", action: "show",s: @post.tytul, :only_path => false) %>&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+	</div>
+	</div>
+<div class="post-content">
+	<%= simple_format @post.long_description %>
+	<% if current_user == nil %>
+
+	<% else %>
+	<% if user.id == current_user.id %>
+		<%= link_to "Edytuj", {controller: "posts", action: "update", s: params[:s]}, class: "button" %>
+	<% end %>
+<% end %>
+</div>
+<div id="inpost-ad-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pokemongo-bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6222054838117933"
+     data-ad-slot="4297236306"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="comments-list">
+	<%= render 'comments/comments' %>
+</div>
+
+<div id="comment-new">
+	<%= render 'comments/form' %>
+</div>
+</div>
+

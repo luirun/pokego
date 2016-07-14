@@ -1,0 +1,64 @@
+<% i = 3 %>
+<% a= 1 %>
+
+<% @post.reverse.each do |f| %>
+<% user = User.find(f.id_autora) %>
+<% category = Category.find(f.kategoria) %>
+
+<% if i%3 == 0 %>
+<div class="row">
+<% a = 3 %>
+<% end %>
+      <div class="medium-6 large-4 columns">
+
+		<article class="article-card">
+
+		<%= link_to controller: "posts", action: "show",s: f.tytul do %>
+          <%= image_tag f.coverphoto.url(:medium)  %>
+		<% end %>
+          <div class="card-content">
+
+            <%= image_tag(category.icon.url(:thumb), class: "post-icon", alt: category.nazwa) %>
+
+            <p class="post-author">Added by: <%= user.imie %> <%= user.nazwisko %></p>
+
+            <h4><%= f.tytul %></h4>
+
+            <p><%= f.short_description %></p>
+
+            <p>
+
+              <%= link_to "Read more...", {controller: "posts", action: "show",s: f.tytul} %>
+
+			<a href="#" class="right">
+				<i class="fi-share">
+				
+				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>&title=<%= f.tytul %>">
+					<%= image_tag "/system/buttons/facebook.png", style: "width:10%;" %>
+				</a>
+				
+				<a href="http://twitter.com/intent/tweet?status=<%= f.tytul %>+<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>">
+					<%= image_tag "/system/buttons/twitter.png", style: "width:10%;" %>
+				</a>
+				
+				</i>
+			</a>
+
+            </p>
+
+          </div>
+
+        </article>
+	</div>
+
+	<% a = a - 1 %>
+
+<% if a==0 %>
+</div>
+<% end %>
+
+<% i = i + 1 %>
+<% end %>	
+	
+	
+	<!-- Fotki musza byc 16:9, kategorie musza miec wlasne ikonki. Kazdy post ma swoja ikonke.  Posty musza miec dodatkowe skrocone opisy. Skrocone opisy moga robic jako meta opis.--!>

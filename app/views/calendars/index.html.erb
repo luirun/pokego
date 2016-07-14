@@ -1,0 +1,104 @@
+<table class="auto">
+	<tr class="bigger">
+		<td><%= link_to "Wcześniej", calendars_index_path(rok: @rokdec, miesiac: @nrmiesiacadec) %></td>
+		<td colspan="5">
+			<%= @nazwymiesiecy[@nrdlanazwy] %> - <%= params[:rok] %>
+		</td>
+		<td><%= link_to "Później", calendars_index_path(rok: @rokinc, miesiac: @nrmiesiacainc) %></td>
+	</tr>
+	
+	<tr class="bigger">
+		<td>Pon</td>
+		<td>Wt</td>
+		<td>Sr</td>
+		<td>Czw</td>
+		<td>Pt</td>
+		<td>Sob</td>
+		<td>Nd</td>
+	</tr>	
+	
+	<% $a = 1 %>
+	<% $i = 1 %>
+	<% $b = 1 %>
+	<% $q = 0 %>
+<% for a in 1..@spaces do %>
+		<td></td>
+	<% $a+=1 %>
+<% end %>
+
+<% for $i in 1..@daysofmonth do %>
+	<% @events.each do |f| %>
+			<% if $i == f.event_date.day %>
+				<% $q = f.event_date.day %>
+				<td style="background-color:#34495e" class="kazde"><%= $i %> - <%=  link_to f.tytul, {:controller => "calendars", :action => "describe", id: f.id}, id: $i, class: "trigger" %></td>
+				<div id="pop-up" class="<%= $i %>">Tytul: <%= f.tytul %></br>Data: <%= f.event_date.strftime("%Y-%d-%m") %></br>Godzina: <%= f.godzina %></div>
+				<% if $a%7 == 0 %>
+					</tr>			
+				<% end %>
+				<% @test = f.id %>	
+			<% end %>
+	<% end %>
+			
+			<% if $i != $q %>
+				<td class="kazde"><%= $i %></td>
+			<% end %>
+			
+			<% if $a%7 == 0 %>
+				<tr></td>
+			<% end %>
+
+<% $a+=1 %>	
+<% end %>
+
+</table>
+<% if logged_in? %>
+<%= link_to "Dodaj nowe wydarzenie!", "new" %>
+<% end %>
+<style>
+main {
+padding-left: 7%;
+padding-top: 1%;
+}
+.auto {
+width:90%;
+height:50%;
+}
+.bigger {
+ font-size:150%;
+ text-align: center;
+}
+.kazde {
+width:50px;
+height:65px;
+}
+div#pop-up {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #eeeeee;
+  color: #000000;
+  border: 1px solid #1a1a1a;
+  font-size: 90%;
+}
+</style>
+
+				<script type="text/javascript">
+      $(function() {
+        var moveLeft = 20;
+        var moveDown = 10;
+		$('a.trigger').mouseover(function() {
+		$id = $(this).attr("id");
+		});
+        $('a.trigger').hover(function(e) {		
+		  $('div.'+$id).fadeIn(300);
+        }, function() {
+          $('div#pop-up').hide();
+        });
+        
+        $('a.trigger').mousemove(function(e) {
+          $("div."+$id).css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+        });
+        
+      });
+ </script>

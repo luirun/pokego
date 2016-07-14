@@ -1,0 +1,20 @@
+<%= form_for @category, url: {controller: "posts", action: "categoryadded"}, method: "post" do |f| %>
+
+		<%= f.hidden_field :id %>
+		
+		<%= label_tag :nazwa %>
+		<%= f.text_field :nazwa %>
+		
+		<%= label_tag(:short_description, "Skrocony opis:") %>
+		<%= f.text_field :opis%>
+		
+		
+		<%= label_tag :icon, "Ikona kategorii:" %>
+		<%= f.file_field :icon %>
+		
+		<%= f.submit "Dodaj kategorie!" %>
+<% end %>
+
+<% if params[:s] != nil %>
+<%= link_to "Powróć do edycji posta!", {controller: "posts", action: "update", s: params[:s]}, class: "button" %>
+<% end %>

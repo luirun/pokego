@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zawartosc:</strong>
+  <%= @comment.zawartosc %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @comment.login %>
+</p>
+
+<p>
+  <strong>Id postu:</strong>
+  <%= @comment.id_postu %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

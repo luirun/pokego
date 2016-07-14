@@ -1,0 +1,23 @@
+<%= form_for @events, url: {controller: "calendars", action: "create"}, method: "post" do |f| %>
+
+		<%= f.hidden_field :id %>
+
+		<%= label_tag(:event_date, "Data:") %>
+		<%= f.date_select :event_date, {order: [:year,:month, :day], prompt: { day: 'Select day' }, start_year: Date.today.year+5, end_year: Date.today.year-5}, {required: true} %>
+		
+		<%= label_tag(:godzina, "Godzina: (w formacie GG:MM)") %>
+		<%= f.text_field :godzina, class: "select" %>
+		
+		<%= label_tag(:tytul, "Tyul:") %>
+		<%= f.text_field :tytul %>
+		
+		<%= label_tag(:opis, "Opis:") %>
+		<%= f.text_field :opis %>
+		
+		<%= label_tag(:id_harcerza, "Dodający") %>
+		<%= f.collection_select(:idharcerza, @harcerze, :id, :nazwisko, prompt: true) %>
+		
+
+		
+		<%= f.submit "Dodaj WYDARZENIE!" %>
+<% end %>

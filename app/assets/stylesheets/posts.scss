@@ -1,0 +1,56 @@
+#post-cover {
+position: relative;
+width:85%;
+height: 55%;
+margin:auto;
+padding-top:2%;
+}
+.post-cover-image {
+height:100%;
+width:100%;
+}
+.post-title {
+width:85%;
+font-size:60px;
+line-height: 72px;
+margin:auto;
+}
+
+.post-info {
+width:85%;
+margin:auto;
+display:block;
+}
+#author-avatar {
+display:inline-block;
+padding-right:10px;
+}
+#author-avatar-img {
+width:50px;
+height:50px;
+margin-right:4px;
+}
+#date-box {
+display:inline-block;
+padding-left:10px;
+padding-right:10px;
+}
+#category-box {
+display:inline-block;
+padding-left:10px;
+}
+#sharing-box {
+display: block;
+position: relative;
+float: right;
+margin-right: 20px;
+font-family: 'Dosis',sans-serif 
+}
+
+	.post-content {
+	width:85%;
+	margin:auto;
+	line-height: 42px;
+	color: #101111;
+	margin-bottom: 40px;
+	}

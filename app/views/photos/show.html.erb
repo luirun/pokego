@@ -1,0 +1,62 @@
+<% @cover.each do |f| %>
+
+	<%= link_to galeria: f.nazwa, id: 0, :controller => :photos, :action => :showgallery do %><div id="<%= f.id %>"  class="back show-for-medium-up" style="background-image:url(<%= f.cover.url(:medium) %>);">
+		<div id="b<%= f.id %>" class="shadow"><p class="title"><%= f.nazwa %></div>
+	</div>
+	<% end %>
+	
+	<%= link_to galeria: f.nazwa, id: 0, :controller => :photos, :action => :showgallery do %><div id="<%= f.id %>"  class="back hide-for-medium-up" style="background-image:url(<%= f.cover.url(:medium) %>);">
+		<div id="b<%= f.id %>" class="shadow"><p class="title"><%= f.nazwa %></div>
+	</div>
+	<% end %>
+	
+<% end %>
+
+
+<script type="text/javascript">
+
+$('div.back').mouseover(function() {
+		$id = $(this).attr("id");
+		});
+        $('div.back').hover(function(e) {
+		  $('div#b'+$id).fadeOut(300);
+		  }, function() {
+          $('div#b'+$id).fadeIn(300);
+        });
+</script>
+<style>
+main {
+height:100vh;
+margin:auto;
+padding:0px;
+}
+p.title {
+color: white;
+text-shadow: 4px 3px 2px black;
+text-align: left;
+font-size: 2.5em;
+}
+div.shadow {
+padding-top: 1%;
+padding-left: 1%;
+background: rgba(0, 0, 0, 0.6);
+width:100%;
+height:100%;
+}
+
+.back.show-for-medium-up {
+background-size: 100% 100%;
+width:33.33%; 
+height:50%;
+float: left;
+border:2px solid black;
+}
+
+.back.hide-for-medium-up{
+background-size: 100% 100%;
+width:100%; 
+height:60%;
+float: left;border:
+2px solid black;
+}
+</style>

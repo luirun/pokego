@@ -1,0 +1,9 @@
+<h3>Zastęp: <%= @units.Nazwa %></h3>
+<h5>Zastępowym: <%= @zastepowy.imie %> <%= @zastepowy.nazwisko %></h5></br>
+<h6>O nas:</h6><%= @units.opis %>
+
+</br> </br>
+<b>Skład:</b>
+<% @sklad.each do |f| %>
+<%= f.imie %> <%= f.nazwisko %>,
+<% end %>

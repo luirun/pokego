@@ -1,0 +1,92 @@
+<% if @uzytkownik == nil %>
+Zaloguj się!
+<% else %>
+<% if @uzytkownik.isadmin == "yes" %>
+<table>
+	<td>ID</td>
+	<td>Imie</td>
+	<td>Nazwisko</td>
+	<td>Wiek</td>
+	<td>Zastep</td>
+<% @all.each do |p| %>
+
+<td><%= form_for (p), url: {:action => 'useredit'}, method: :post do |f| %></td>
+	<tr>
+		<td><%= p.id %></td>
+		<td><%= p.imie %> </td>
+		<td><%= p.nazwisko %> </td>
+		<td><%= p.wiek %></td>
+		<td><%= p.zastep %></td>
+		<td><%= f.hidden_field "id", :value => p.id, label: "aa" %>
+			<%= f.button "Edytuj" %>
+			<% end %></td>
+	</tr>
+<% end %>
+<td colspan="5"><%= link_to "Dodaj nowego harcerza!", { controller: "admins", action: "new"}, class: "button" %> </td>
+</table>
+
+<% if false %>
+
+<table>
+<Td colspan="2">Zarzadzaj uzytkownikami.</td>
+<% @userpanel.each do |t| %>
+<td><%= form_for (t), url: {:action => 'panel'}, method: :post do |f| %></td>
+	<tr>
+		<td><%= t.id %></td>
+		<td><%= t.login %></td>
+		<td><%= t.login %> </td>
+		<td><%= t.email %></td>
+		<td><%= t.dataur %></td>
+		<td><%= f.hidden_field "id", :value => t.id %>
+				<%= f.button "Edytuj" %>
+			<% end %></td>
+	</tr>
+<% end %>
+</table>
+</br>
+</br>
+
+Zarzadzaj miejscami.
+<table>
+<% @placepanel.each do |p| %>
+<td><%= form_for (p), url: {:action => 'placepanel'}, method: :post do |f| %></td>
+	<tr>
+		<td><%= p.id %></td>
+		<td><%= p.miasto %></td>
+		<td><%= p.adres %> </td>
+		<td><%= p.opis %> </td>
+		<td><%= p.user_id %></td>
+		<td><%= p.approved %></td>
+		<td><%= f.hidden_field "id", :value => p.id, label: "aa" %>
+			<%= f.button "Edytuj" %>
+			<% end %></td>
+	</tr>
+<% end %>
+</table>
+<% end %>
+
+
+Zarzadzaj zastępami.
+<table>
+			<td>Id</td>
+			<td>Nazwa</td>
+			<td>Zastepowy</td>
+			<td>Opis</td>
+<% @units.each do |p| %>
+<td><%= form_for (p), url: {:action => 'panel'}, method: :post do |f| %></td>
+	<tr>
+		<td><%= p.id %></td>
+		<td><%= p.Nazwa %></td>
+		<td><%= p.Zastepowy %> </td>
+		<td><%= p.opis %> </td>
+		<td><%= f.hidden_field "id", :value => p.id, label: "aa" %>
+			<%= f.button "Edytuj" %>
+			<% end %></td>
+	</tr>
+<% end %>
+<%= link_to "Dodaj nowy zastęp", {controller: "units", action: "create"} %>
+</table>
+<% else %>
+Musisz zalogowac sie na konto administratora
+<% end %>
+<% end %>

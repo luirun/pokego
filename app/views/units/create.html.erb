@@ -1,0 +1,17 @@
+<%= form_for @newunit, url: {controller: "units", action: "new"}, method: "post" do |f| %>
+
+		<%= f.hidden_field :id %>
+		
+		<%= label_tag(:nazwa, "Nazwa:") %>
+		<%= f.text_field :Nazwa %>
+		
+		<%= label_tag(:tytul, "Opis:") %>
+		<%= f.text_field :opis %>
+		
+		<%= label_tag(:zastepowy, "Zastępowy:") %>
+		<%= f.collection_select(:Zastepowy, @harcerze, :id, "combined_value", prompt: true) %>
+		
+
+		
+		<%= f.submit "Dodaj zastęp!" %>
+<% end %>

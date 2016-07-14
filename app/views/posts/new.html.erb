@@ -1,0 +1,28 @@
+<%= form_for @post, url: {controller: "posts", action: "create"}, method: "post" do |f| %>
+
+		<%= f.hidden_field :id %>
+		
+		<%= f.hidden_field :id_autora, value: current_user.id%>
+
+		<%= f.hidden_field :data_dodania, value: Time.now() %>
+		
+		<%= label_tag :tytul %>
+		<%= f.text_field :tytul %>
+		
+		<%= label_tag(:short_description, "Skrocony opis:") %>
+		<%= f.text_field :short_description %>
+		
+		<%= label_tag(:long_description, "Pełen opis:") %>
+		<%= f.cktext_area :long_description, :class => 'najlepsza', :ckeditor => {:language => 'pl'} %>
+		
+		<%= label_tag :kategoria, "Kategoria" %>
+		<%= f.collection_select(:kategoria, @kategoria, :id, :nazwa) %>
+		<%= link_to "Dodaj nową kategorię!", {controller: "posts", action: "newcategory"}, class: "button", target: "_blank" %>
+		
+		<%= label_tag :coverphoto, "Okładka:" %>
+		<%= f.file_field :coverphoto %>
+		
+
+		
+		<%= f.submit "Dodaj WYDARZENIE!" %>
+<% end %>

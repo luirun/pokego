@@ -1,0 +1,21 @@
+<%= form_for @user, url: {controller: "admins", action: "create"}, method: "post" do |f| %>
+
+		<%= f.hidden_field :id %>
+
+		<%= label_tag(:imie, "Imie:") %>
+		<%= f.text_field :imie %>
+
+		<%= label_tag(:nazwisko, "Nazwisko:") %>
+		<%= f.text_field :nazwisko %>
+
+		<%= label_tag(:pesel, "PESEL:") %>
+		<%= f.text_field :pesel %>
+		
+		<%= label_tag(:wiek, "Wiek:") %>
+		<%= f.text_field :wiek %>
+		
+		<%= label_tag(:zastep, "Zastęp:") %>
+		<%= f.collection_select(:zastep, @zastep, :id, :nazwa) %>
+		
+		<%= f.submit "Dodaj harcerza!" %>
+<% end %>

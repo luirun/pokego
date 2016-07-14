@@ -1,0 +1,41 @@
+<h3>Dodaj nowy komentarz:</h3>
+<% if current_user == nil %>
+Musisz się zalogować aby dodać nowy komentarz!
+Jeśli nie masz jeszcze konta <%= link_to "zarejestruj się!", url: {controller: "users", action: "new"} %>
+<% else %>
+<%= simple_form_for @comment, :url =>{controller: "comments", action: "create", s: params[:s]} do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+	
+    <%= f.input :zawartosc, label: "Treść:", :input_html => { :onkeyup => "lenght()"} %>
+	<div id="length-counter"> </div>
+<% if current_user == nil %>
+    <%= f.input :login %>
+<% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Dodaj swój komentarz!", class: "small secondary button" %>
+  </div>
+ <% end %>
+<% end %>
+<script type="text/javascript">
+function lenght() {
+var a = document.getElementById("comment_zawartosc").value
+if (a.length < 5) {
+	document.getElementById("length-counter").style.color = "red"
+}
+else if (a.length > 240 && a.length < 255) {
+	document.getElementById("length-counter").style.color = "orange"
+}
+else if (a.length > 254) {
+	document.getElementById("length-counter").style.color = "red"
+}
+else {
+	document.getElementById("length-counter").style.color = "black"
+}
+document.getElementById("length-counter").innerHTML = "Limit: "+a.length+"/255"
+}
+
+</script>

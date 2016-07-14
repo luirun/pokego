@@ -1,0 +1,47 @@
+<h1>Komentarze:</h1>
+<div id="comments-container">
+    <% @comments.each do |comment| %>
+	<div class="comment-container show-for-landscape">
+	
+		<div class="comment-author show-for-landscape">
+			<%= image_tag (@user.avatar.url(:medium)), class: "comment-author-avatar show-for-landscape" %>
+			<div class="comment-author-info show-for-landscape"><%= comment.login %>
+			</div>
+			<div class="comment-date show-for-landscape"><%= l(comment.created_at, :format => '%d %B %Y %H:%M:%S', :locale => 'pl') %></div>
+		</div>
+		
+		<div class="comment-content show-for-landscape">
+			<%= simple_format(comment.zawartosc) %>
+			
+			<% if current_user != nil && current_user.uprawnienia == "administrator" %>
+				<% if comment.approved == "n" %>
+					<%= link_to "Zaakceptuj", {controller: "comments", action: "approve", id: comment.id}, style: "button" %>
+				<% end %>
+			<% end %>
+		</div>
+		
+	</div>
+	
+	
+	
+	<div class="comment-container show-for-portrait">
+	
+		<div class="comment-author show-for-portrait">
+			<%= image_tag (@user.avatar.url(:medium)), class: "comment-author-avatar show-for-portrait" %>
+			<div class="comment-author-info show-for-portrait"><%= comment.login %></div>
+			<div class="comment-date show-for-portrait"><%= l(comment.created_at, :format => '%d %B %Y %H:%M:%S', :locale => 'pl') %></div>
+		</div>
+		
+		<div class="comment-content-small show-for-portrait">
+			<%= simple_format(comment.zawartosc) %>	
+		</div>
+		
+	</div>
+	
+
+	
+    <% end %>
+</div>
+
+
+

@@ -1,0 +1,7 @@
+<% if logged_in? %>
+<%= link_to "Wyloguj się!", {controller: "sessions", action: "destroy"}, class: "button small alert" %></li>
+<li>  <%= link_to "Moj profil!", {controller: "users", action: "profile", login: @current_user.login}, class: "button small confirm" %></li>
+<% else %>
+
+<% end %>
+</li>

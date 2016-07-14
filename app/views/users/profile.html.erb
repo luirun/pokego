@@ -1,0 +1,12 @@
+</br>
+<div class="avatar" style="width:200px;height:200px;margin:auto; float:left; margin:10px;">
+	<%= image_tag @user.avatar.url(:medium), style: "width:100%;height:100%;" %>
+</div>
+<h2><%= @user.imie %> <%= @user.nazwisko %></h2>
+<h3><%= @user.login %></h3></br>
+<h4>About me:<%= simple_format @user.description %>
+<% if @user.uprawnienia != "uzytkownik" %>
+<%= link_to "Napisz nowy post!", {controller: "posts", action: "new"} %>
+<% end %>
+<%= link_to "Edit Profile", {controller: "users", action: "edit", user: params[:login]}, style: "secondary button" %>
+aasd
