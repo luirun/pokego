@@ -14,7 +14,7 @@
 		<article class="article-card">
 
 		<%= link_to controller: "posts", action: "show",s: f.tytul do %>
-          <%= image_tag f.coverphoto.url(:medium)  %>
+          <%= image_tag f.coverphoto.url(:hmedium)  %>
 		<% end %>
           <div class="card-content">
 
@@ -28,7 +28,7 @@
 
             <p class="read-more">
 
-              <%= link_to "Read more...", {controller: "posts", action: "show",s: f.tytul} %>
+              <%= link_to "Read more...", {controller: "posts", action: "show",s: f.tytul}  %>
 			  
 			 </p>
 			  
@@ -37,11 +37,7 @@
 				<i class="fi-share"></i>
 				
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>&title=<%= f.tytul %>">
-					<%= image_tag "/system/buttons/facebook.png", style: "width:28.5%;" %>
-				</a>
-				
-				<a href="http://twitter.com/intent/tweet?status=<%= f.tytul %>+<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>">
-					<%= image_tag "/system/buttons/twitter.png", style: "width:28.5%;" %>
+					<%= image_tag "/system/buttons/facebook.png", style: "width:40%;" %>
 				</a>
 					
 			</div>
