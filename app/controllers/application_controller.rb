@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     defaults = {
       site:        site_name,
       title:       title,
-      image:       image,
+      image:       "/system/buttons/download.png",
       description: description,
       keywords:    %w[web software development mobile app],
       twitter: {
