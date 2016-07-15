@@ -1,7 +1,7 @@
-<h3>Dodaj nowy komentarz:</h3>
+<h3>Add new comment:</h3>
 <% if current_user == nil %>
-Musisz się zalogować aby dodać nowy komentarz!
-Jeśli nie masz jeszcze konta <%= link_to "zarejestruj się!", url: {controller: "users", action: "new"} %>
+You have to login in to add new comment!
+If you don't have an account get it <%= link_to "here!", url: {controller: "users", action: "new"} %>
 <% else %>
 <%= simple_form_for @comment, :url =>{controller: "comments", action: "create", s: params[:s]} do |f| %>
   <%= f.error_notification %>

@@ -1,12 +1,10 @@
-#post-cover {
+#post-cover.show-for-landscape {
 position: relative;
 width:85%;
-height: 55%;
 margin:auto;
 padding-top:2%;
 }
-.post-cover-image {
-height:100%;
+#post-cover.show-for-portrait {
 width:100%;
 }
 .post-title {

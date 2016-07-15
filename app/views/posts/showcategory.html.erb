@@ -41,22 +41,27 @@
 
             <p><%= f.short_description %></p>
 
-            <p>
+            <p style="position:relative;width:75%;display:inline-block;">
 
               <%= link_to "Read more...", {controller: "posts", action: "show",s: f.tytul} %>
-
-				<i class="fi-share" style="float:right;">
+			  
+			 </p>
+			  
+			 <div class="right" style="display:inline-block;width:25%;">
+				
+				<i class="fi-share"></i>
+				
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>&title=<%= f.tytul %>">
-					<%= image_tag "/system/buttons/facebook.png", style: "width:10%;" %>
+					<%= image_tag "/system/buttons/facebook.png", style: "width:37%;" %>
 				</a>
 				
 				<a href="http://twitter.com/intent/tweet?status=<%= f.tytul %>+<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>">
-					<%= image_tag "/system/buttons/twitter.png", style: "width:10%;" %>
+					<%= image_tag "/system/buttons/twitter.png", style: "width:37%;" %>
 				</a>
-				</i>
-			</a>
+					
+			</div>
 
-            </p>
+            
 
           </div>
 

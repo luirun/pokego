@@ -15,9 +15,14 @@
 </script>
 </div>
 
-<div id="post-cover">
+<div id="post-cover" class="show-for-landscape">
 <%= image_tag (@post.coverphoto.url(:wide)), class: "post-cover-image" %>
 </div>
+
+<div id="post-cover" class="show-for-portrait">
+<%= image_tag (@post.coverphoto.url(:wide)), class: "post-cover-image" %>
+</div>
+
 <div class="post-title"><%= @post.tytul %></div>
 <div class="post-info" > 
 	<div id="author-avatar"><%= image_tag (@user.avatar.url(:thumb)), id: "author-avatar-img" %><%= link_to "#{user.imie} #{user.nazwisko}", {controller: "users", action: "author", id: @post.id_autora} %> </div>

@@ -1,4 +1,7 @@
-<h1>Komentarze:</h1>
+<h1>Comments:</h1>
+<% if @comments[0] == nil %>
+No comments found!
+<% else %>
 <div id="comments-container">
     <% @comments.each do |comment| %>
 	<div class="comment-container show-for-landscape">
@@ -7,7 +10,7 @@
 			<%= image_tag (@user.avatar.url(:medium)), class: "comment-author-avatar show-for-landscape" %>
 			<div class="comment-author-info show-for-landscape"><%= comment.login %>
 			</div>
-			<div class="comment-date show-for-landscape"><%= l(comment.created_at, :format => '%d %B %Y %H:%M:%S', :locale => 'pl') %></div>
+			<div class="comment-date show-for-landscape"><%= l(comment.created_at, :format => '%d %B %Y %H:%M:%S', :locale => 'en') %></div>
 		</div>
 		
 		<div class="comment-content show-for-landscape">
@@ -42,6 +45,6 @@
 	
     <% end %>
 </div>
-
+<% end %>
 
 

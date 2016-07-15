@@ -21,11 +21,13 @@ class UsersController < ApplicationController
 	
 	def profile
 		@user = User.where(:login => params[:login]).first
+		prepare_meta_tags(title: "#{@user.login} profile.", description: "##{@user.login} profile.")
 	end
 	
 	def author
 		@post = Post.where(:id_autora => params[:id])
 		@user = User.find(params[:id])
+		prepare_meta_tags(title: "Published by #{@user.login}", description: "#All posted by #{@user.login}.")
 	end
 	
 	def edit

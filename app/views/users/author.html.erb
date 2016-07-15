@@ -1,9 +1,28 @@
-<div class="author-posts"><h2><center>Posty autora: <%= @user.imie %> <%= @user.nazwisko %></center></h2></div>
+<div id="inpost-ad-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pokemongo-top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6222054838117933"
+     data-ad-slot="2820503107"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<% i = 3 %>
+<% a= 1 %>
+
+<div class="author-posts" style="font-size:3em;padding:10px;"><center>Posted by <%= @user.login %>:</center></div>
 <% @post.reverse.each do |f| %>
 <% user = User.find(f.id_autora) %>
 <% category = Category.find(f.kategoria) %>
-    <div class="row">
 
+<% if i%3 == 0 %>
+<div class="row">
+<% a = 3 %>
+<% end %>
       <div class="medium-6 large-4 columns">
 
 		<article class="article-card">
@@ -15,36 +34,54 @@
 
             <%= image_tag(category.icon.url(:thumb), class: "post-icon", alt: category.nazwa) %>
 
-            <p class="post-author">Dodano przez: <%= user.imie %> <%= user.nazwisko %></p>
+            <p class="post-author">Added by: <%= user.imie %> <%= user.nazwisko %></p>
 
             <h4><%= f.tytul %></h4>
 
             <p><%= f.short_description %></p>
 
-            <p>
+            <p style="position:relative;width:75%;display:inline-block;">
 
-              <%= link_to "Czytaj więcej...", {controller: "posts", action: "show",s: f.tytul} %>
-
-			<a href="#" class="right">
-				<i class="fi-share">
+              <%= link_to "Read more...", {controller: "posts", action: "show",s: f.tytul} %>
+			  
+			 </p>
+			  
+			 <div class="right" style="display:inline-block;width:25%;">
+				
+				<i class="fi-share"></i>
 				
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>&title=<%= f.tytul %>">
-					<%= image_tag "/system/buttons/facebook.png", style: "width:10%;" %>
+					<%= image_tag "/system/buttons/facebook.png", style: "width:37%;" %>
 				</a>
 				
 				<a href="http://twitter.com/intent/tweet?status=<%= f.tytul %>+<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>">
-					<%= image_tag "/system/buttons/twitter.png", style: "width:10%;" %>
+					<%= image_tag "/system/buttons/twitter.png", style: "width:37%;" %>
 				</a>
-				
-				</i>
-			</a>
-
-            </p>
-
-          </div>
+					
+			</div>
 
         </article>
-		
-      </div>
+	</div>
+
+	<% a = a - 1 %>
+
+<% if a==0 %>
+</div>
+<% end %>
+
+<% i = i + 1 %>
 <% end %>	
-	
+
+
+<div id="inpost-ad-container">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pokemongo-bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6222054838117933"
+     data-ad-slot="4297236306"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
