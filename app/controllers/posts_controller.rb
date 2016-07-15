@@ -7,14 +7,19 @@ class PostsController < ApplicationController
 	
 	def show
 		@post = Post.where(:tytul => params[:s]).first
-		@user = User.find(@post.id_autora)
-		@comment = Comment.new
-		if current_user != nil && current_user.uprawnienia = "administrator"
-		@comments = Comment.where(:id_postu => @post.id)
+		if @post != nil
+			@user = User.find(@post.id_autora)
+			@comment = Comment.new
+			if current_user != nil && current_user.uprawnienia = "administrator"
+			@comments = Comment.where(:id_postu => @post.id)
+			else
+			@comments = Comment.where(:id_postu => @post.id, :approved => "y")
+			end
+			prepare_meta_tags title: @post.tytul, description: @post.short_description
 		else
-		@comments = Comment.where(:id_postu => @post.id, :approved => "y")
+			prepare_meta_tags title: "Not found 404", description: "Page not found 404!"
 		end
-		prepare_meta_tags title: @post.tytul, description: @post.short_description
+
 	end
 	
 	def update

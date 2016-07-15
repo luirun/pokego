@@ -1,7 +1,3 @@
-<% kategoria = Category.find(@post.kategoria) %>
-<% user = User.find(@post.id_autora) %>
-
-
 <div id="inpost-ad-container">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- pokemongo-top -->
@@ -14,6 +10,19 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
+
+
+
+<% if @post == nil %>
+	<%= image_tag("/system/errors/error_404.png", style:"width:100%;height:100%;") %>
+<% else %>
+<% kategoria = Category.find(@post.kategoria) %>
+<% user = User.find(@post.id_autora) %>
+
+
+
+
+
 
 <div id="post-cover" class="show-for-landscape">
 <%= image_tag (@post.coverphoto.url(:wide)), class: "post-cover-image" %>
@@ -42,6 +51,7 @@
 	<% end %>
 <% end %>
 </div>
+
 <div id="inpost-ad-container">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- pokemongo-bottom -->
@@ -54,6 +64,7 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
+
 <div id="comments-list">
 	<%= render 'comments/comments' %>
 </div>
@@ -62,4 +73,4 @@
 	<%= render 'comments/form' %>
 </div>
 </div>
-
+<% end %>

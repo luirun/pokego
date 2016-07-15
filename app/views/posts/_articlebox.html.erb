@@ -1,7 +1,6 @@
 <% i = 3 %>
 <% a= 1 %>
 
-
 <% @post.reverse.each do |f| %>
 <% user = User.find(f.id_autora) %>
 <% category = Category.find(f.kategoria) %>
@@ -38,11 +37,11 @@
 				<i class="fi-share"></i>
 				
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>&title=<%= f.tytul %>">
-					<%= image_tag "/system/buttons/facebook.png", style: "width:30%;" %>
+					<%= image_tag "/system/buttons/facebook.png", style: "width:28.5%;" %>
 				</a>
 				
 				<a href="http://twitter.com/intent/tweet?status=<%= f.tytul %>+<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>">
-					<%= image_tag "/system/buttons/twitter.png", style: "width:30%;" %>
+					<%= image_tag "/system/buttons/twitter.png", style: "width:28.5%;" %>
 				</a>
 					
 			</div>
