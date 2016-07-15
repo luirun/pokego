@@ -11,73 +11,8 @@
 </script>
 </div>
 
+<%= render :partial => "/posts/articlebox" %>
 
-
-<% i = 3 %>
-<% a= 1 %>
-
-
-<% @posts.reverse.each do |f| %>
-<% user = User.find(f.id_autora) %>
-
-<% if i%3 == 0 %>
-<div class="row">
-<% a = 3 %>
-<% end %>
-
-      <div class="medium-6 large-4 columns">
-
-		<article class="article-card">
-
-          <img src="<%= f.coverphoto.url(:medium) %>">
-
-          <div class="card-content">
-
-            <img class="post-icon" src="<%= @category.icon.url(:thumb) %>" alt="foundation icon">
-
-            <p class="post-author">Added by: <%= user.imie %> <%= user.nazwisko %></p>
-
-            <h4><%= f.tytul %></h4>
-
-            <p><%= f.short_description %></p>
-
-            <p style="position:relative;width:75%;display:inline-block;">
-
-              <%= link_to "Read more...", {controller: "posts", action: "show",s: f.tytul} %>
-			  
-			 </p>
-			  
-			 <div class="right" style="display:inline-block;width:25%;">
-				
-				<i class="fi-share"></i>
-				
-				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>&title=<%= f.tytul %>">
-					<%= image_tag "/system/buttons/facebook.png", style: "width:37%;" %>
-				</a>
-				
-				<a href="http://twitter.com/intent/tweet?status=<%= f.tytul %>+<%= url_for(controller: "posts", action: "show",s: f.tytul, :only_path => false) %>">
-					<%= image_tag "/system/buttons/twitter.png", style: "width:37%;" %>
-				</a>
-					
-			</div>
-
-            
-
-          </div>
-
-        </article>
-
-      </div>
-	  
-<% a = a - 1 %>
-
-<% if a==0 %>
-</div>
-<% end %>
-
-<% i = i + 1 %>
-
-<% end %>	
 
 
 <div id="inpost-ad-container">

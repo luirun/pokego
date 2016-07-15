@@ -58,7 +58,7 @@ class PostsController < ApplicationController
 	
 	def showcategory
 		@category = Category.where(:nazwa => params[:category]).first
-		@posts = Post.where(:kategoria => Category.select(:id).where(:nazwa => params[:category]))
+		@post = Post.where(:kategoria => Category.select(:id).where(:nazwa => params[:category]))
 		prepare_meta_tags title: @category.nazwa, description: @category.opis
 	end
 	
