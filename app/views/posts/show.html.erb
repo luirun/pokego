@@ -34,7 +34,7 @@
 
 <div class="post-title"><%= @post.tytul %></div>
 <div class="post-info" > 
-	<div id="author-avatar"><%= image_tag (@user.avatar.url(:thumb)), id: "author-avatar-img" %><%= link_to "#{user.imie} #{user.nazwisko}", {controller: "users", action: "author", id: @post.id_autora} %> </div>
+	<div id="author-avatar"><%= image_tag (@user.avatar.url(:thumb)), id: "author-avatar-img" %><%= link_to "#{user.login}", {controller: "users", action: "author", id: @post.id_autora} %> </div>
 	<div id="date-box"><%= @post.data_dodania %></div>
 	<div id="category-box"><%= link_to kategoria.nazwa,{controller: "posts", action: "showcategory", category: kategoria.nazwa}, class: "tiny secondary button" %></div>
 	<div id="sharing-box"> 
